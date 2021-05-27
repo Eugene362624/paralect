@@ -13,7 +13,7 @@ function Main() {
     const { user, html_url, name, login, loading, error, avatar_url, followers, following, public_repos } = userInfo
 
     const reposInfo = useSelector(state => state.reposInfo)
-    const { reposRepos = {}, reposLoading, reposError } = reposInfo
+    const { reposRepos = {}, reposLoading } = reposInfo
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -33,9 +33,9 @@ function Main() {
                 {loading || reposLoading?
                     <React.Fragment>
                         <div style={styles.contentLeft} className="content-left">
-                            <Skeleton><img style={{ borderRadius: "50%", maxWidth: '280px' }} src={`https://avatars.githubusercontent.com/u/63005581?v=4`}></img></Skeleton>
+                            <Skeleton><img alt="avatar" style={{ borderRadius: "50%", maxWidth: '280px' }} src={`https://avatars.githubusercontent.com/u/63005581?v=4`}></img></Skeleton>
                             <Skeleton><h2 style={{ color: 'black', marginTop: '2rem' }}>Eugene Medvedev</h2></Skeleton>
-                            <Skeleton><a href={html_url} style={{ marginTop: "1rem", textDecoration: 'none' }} target="_blank"><small style={{ color: '#0064EB' }}>Eugene Medvedev</small></a></Skeleton>
+                            <Skeleton><a rel="noreferrer" href={html_url} style={{ marginTop: "1rem", textDecoration: 'none' }} target="_blank"><small style={{ color: '#0064EB' }}>Eugene Medvedev</small></a></Skeleton>
                             <div style={{ marginTop: "1rem", display: 'flex', justifyContent: 'space-between', width: '100%' }}>
                                 <Skeleton><span style={{ display: 'flex', alignItems: 'center' }}><GroupIcon />100 followers</span></Skeleton>
                                 <Skeleton><span style={{ display: 'flex', alignItems: 'center' }}><PersonIcon />100 following</span></Skeleton>
@@ -44,22 +44,22 @@ function Main() {
                         <div style={styles.contentRight} className="content-right">
                                                     <Skeleton><h1 style={{ color: 'black' }}>Repositories (100)</h1></Skeleton>
                                                             <div style={{ width: "100%", background: 'white', padding: "2rem", marginTop: '2rem', borderRadius: '6px' }}>
-                                                                <Skeleton><a href='#' target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>Eugene Medvedev</p></a></Skeleton>
+                                                                <Skeleton><a href='/' target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>Eugene Medvedev</p></a></Skeleton>
                                                                 <br></br>
                                                                 <Skeleton><small style={{ wordBreak: "break-all" }}>Eugene Medvedev</small></Skeleton>
                                                             </div>
                                                             <div style={{ width: "100%", background: 'white', padding: "2rem", marginTop: '2rem', borderRadius: '6px' }}>
-                                                                <Skeleton><a href='#' target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>Eugene Medvedev</p></a></Skeleton>
+                                                                <Skeleton><a href='/' target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>Eugene Medvedev</p></a></Skeleton>
                                                                 <br></br>
                                                                 <Skeleton><small style={{ wordBreak: "break-all" }}>Eugene Medvedev</small></Skeleton>
                                                             </div>
                                                             <div style={{ width: "100%", background: 'white', padding: "2rem", marginTop: '2rem', borderRadius: '6px' }}>
-                                                                <Skeleton><a href='#' target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>Eugene Medvedev</p></a></Skeleton>
+                                                                <Skeleton><a href='/' target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>Eugene Medvedev</p></a></Skeleton>
                                                                 <br></br>
                                                                 <Skeleton><small style={{ wordBreak: "break-all" }}>Eugene Medvedev</small></Skeleton>
                                                             </div>
                                                             <div style={{ width: "100%", background: 'white', padding: "2rem", marginTop: '2rem', borderRadius: '6px' }}>
-                                                                <Skeleton><a href='#' target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>Eugene Medvedev</p></a></Skeleton>
+                                                                <Skeleton><a href='/' target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>Eugene Medvedev</p></a></Skeleton>
                                                                 <br></br>
                                                                 <Skeleton><small style={{ wordBreak: "break-all" }}>Eugene Medvedev</small></Skeleton>
                                                             </div>
@@ -91,9 +91,9 @@ function Main() {
                             user ?
                                 <React.Fragment>
                                     <div style={styles.contentLeft} className="content-left">
-                                        <img style={{ borderRadius: "50%", maxWidth: '280px' }} src={avatar_url}></img>
+                                        <img alt="avatar" style={{ borderRadius: "50%", maxWidth: '280px' }} src={avatar_url}></img>
                                         <h2 style={{ color: 'black', marginTop: '2rem' }}>{name ? name : login}</h2>
-                                        <a href={html_url} style={{ marginTop: "1rem", textDecoration: 'none' }} target="_blank"><small style={{ color: '#0064EB' }}>{login}</small></a>
+                                        <a href={html_url} rel="noreferrer" style={{ marginTop: "1rem", textDecoration: 'none' }} target="_blank"><small style={{ color: '#0064EB' }}>{login}</small></a>
                                         <div style={{ marginTop: "1rem", display: 'flex', justifyContent: 'space-between', width: '100%' }}>
                                             <span style={{ display: 'flex', alignItems: 'center' }}><GroupIcon />{followers} followers</span>
                                             <span style={{ display: 'flex', alignItems: 'center' }}><PersonIcon />{following} following</span>
@@ -107,14 +107,14 @@ function Main() {
                                                     {reposRepos.map((e, i) => {
                                                         return (
                                                             <div style={{ width: "100%", background: 'white', padding: "2rem", marginTop: '2rem', borderRadius: '6px' }} key={i}>
-                                                                <a href={e.html_url} target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>{e.name}</p></a>
+                                                                <a href={e.html_url} rel="noreferrer" target="_blank" style={{ textDecoration: 'none' }}><p style={{ fontSize: '24px', color: '#0064EB', wordBreak: "break-all" }}>{e.name}</p></a>
                                                                 <br></br>
                                                                 <small style={{ wordBreak: "break-all" }}>{e.description}</small>
                                                             </div>)
                                                     }
                                                     )}
                                                     <div style={{ display: "flex", marginTop: '2rem', alignItems: 'center', marginLeft: 'auto' }} className="pagination">
-                                                        <small>{page == 1 ? 1 : (reposRepos.length < 4 ? ((page) * 4) - (4 - reposRepos.length) - reposRepos.length + 1 : (page - 1) * reposRepos.length + 1)} - {(page * 4) - (4 - reposRepos.length)} of {public_repos} items</small><Pagination class="pagination" page={page} onChange={pageChangeHandler} boundaryCount={1} count={Math.ceil(public_repos / 4)} variant="outlined" shape="rounded" />
+                                                        <small>{page === 1 ? 1 : (reposRepos.length < 4 ? ((page) * 4) - (4 - reposRepos.length) - reposRepos.length + 1 : (page - 1) * reposRepos.length + 1)} - {(page * 4) - (4 - reposRepos.length)} of {public_repos} items</small><Pagination class="pagination" page={page} onChange={pageChangeHandler} boundaryCount={1} count={Math.ceil(public_repos / 4)} variant="outlined" shape="rounded" />
 
                                                     </div>
                                                 </React.Fragment> :
