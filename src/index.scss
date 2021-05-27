@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", 'sans-serif';
+    color: #808080;
+}
+
+.pagination {
+    .Mui-selected {
+        background: #0064EB !important;
+        color: #fff
+    }
+    .MuiPaginationItem-root {
+        min-width: 21px !important;
+        height: 25px !important;
+        border: none !important;
+    }
+    .MuiPaginationItem-root[aria-label = "Go to previous page"]:hover, .MuiPaginationItem-root[aria-label = "Go to next page"]:hover {
+        svg {
+            fill: #0064EB
+        }
+    }
+}
