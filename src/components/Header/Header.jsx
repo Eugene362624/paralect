@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import "./Header.scss"
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { infoRepos, infoUser } from '../../actions/userActons'
 
 function Header(props) {
